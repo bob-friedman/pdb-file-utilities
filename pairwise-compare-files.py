@@ -14,6 +14,8 @@ def pairwise_comparisons(directory):
     files = os.listdir(directory)
     for file1, file2 in combinations(files, 2):
         # print list of all pairs of files
+        # "f" refers to "formatted string literal"
+        #  introduced in python version 3.6
         print(f"{file1} {file2}")
 
 # modify directory to the files of interest
