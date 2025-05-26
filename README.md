@@ -150,3 +150,4 @@ The script includes error handling for common issues such as:
 It will print informative messages for such errors (to standard error) and continue to process other PDB IDs if possible. A summary of successful and failed downloads is provided at the end. The script will exit with a non-zero status code if any downloads fail or if critical errors occur.
 
 [end of README.md]
+=======
