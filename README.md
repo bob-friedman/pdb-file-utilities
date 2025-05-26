@@ -163,4 +163,3 @@ The paper discusses several data processing steps for PDB files, particularly in
 *   **`pdb-residue-index-reset.py`**: This script implements the residue number resetting logic described in Appendix A.3 and exemplified in Appendix B. This is noted as a necessary step for preparing files for tools like TM-score.
 *   **`pdb-split-files.py`**: The concept of splitting a PDB file into multiple smaller files, each representing a window of amino acid residues (specifically 9 residues in the script's case), is discussed in Appendix A.2 of the paper. This script provides a practical tool for such an operation.
 *   **`download_pdb.py`**: While the paper mentions using `curl` for downloading archived PDB datasets (Appendix A.1), the `download_pdb.py` script in this repository offers a more targeted way to download specific PDB files directly by their IDs, which can be a useful complementary tool for data acquisition.
-=======
