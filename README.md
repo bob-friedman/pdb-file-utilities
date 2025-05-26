@@ -1,6 +1,8 @@
 # pdb-file-utilities
 Python code to help process files of 3d protein structure (PDB format).
 
+This initial set of files provides samples of code used to process files for a research project. They are released as examples of accessing and utilizing BioPython and other modules for PDB file manipulation.
+=======
 This initial set of files are samples of code used to process files for a research project. They are released as examples of access to the biopython and other modules.
 
 ## `pairwise-compare-files.py`
@@ -148,3 +150,17 @@ The script includes error handling for common issues such as:
 *   Network connectivity problems (e.g., connection timeouts).
 *   File system errors (e.g., issues creating the output directory or writing files).
 It will print informative messages for such errors (to standard error) and continue to process other PDB IDs if possible. A summary of successful and failed downloads is provided at the end. The script will exit with a non-zero status code if any downloads fail or if critical errors occur.
+
+## Relation to Published Bioinformatics Workflows
+
+Several of the utility scripts in this repository are practical implementations of tools and methods discussed within bioinformatics research. They can be used to replicate or support workflows described in the following publication:
+
+> Friedman, R. Techniques for Theoretical Prediction of Immunogenic Peptides. *Encyclopedia* **2024**, *4*, 600-621. https://doi.org/10.3390/encyclopedia4010038
+
+The paper discusses several data processing steps for PDB files, particularly in its appendices. The scripts in this repository provide functional implementations for some of these operations:
+
+*   **`pdb-model-chain.py`**: The functionality of this script, which parses PDB files to list their models and chains, directly corresponds to the Python code example provided in Appendix A.2 and further detailed in Appendix B of the paper.
+*   **`pdb-residue-index-reset.py`**: This script implements the residue number resetting logic described in Appendix A.3 and exemplified in Appendix B. This is noted as a necessary step for preparing files for tools like TM-score.
+*   **`pdb-split-files.py`**: The concept of splitting a PDB file into multiple smaller files, each representing a window of amino acid residues (specifically 9 residues in the script's case), is discussed in Appendix A.2 of the paper. This script provides a practical tool for such an operation.
+*   **`download_pdb.py`**: While the paper mentions using `curl` for downloading archived PDB datasets (Appendix A.1), the `download_pdb.py` script in this repository offers a more targeted way to download specific PDB files directly by their IDs, which can be a useful complementary tool for data acquisition.
+=======
