@@ -2,7 +2,7 @@
 Python code to help process files of 3d protein structure (PDB format).
 
 This initial set of files provides samples of code used to process files for a research project. They are released as examples of accessing and utilizing BioPython and other modules for PDB file manipulation.
-=======
+
 This initial set of files are samples of code used to process files for a research project. They are released as examples of access to the biopython and other modules.
 
 ## `pairwise-compare-files.py`
