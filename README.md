@@ -97,3 +97,56 @@ done < pairs.txt
     ```
 
 **Warning:** This script can generate a large number of output files, especially when processing PDB files with many residues or a large number of PDB files in the input directory. It is strongly recommended to test this script on a small subset of your data first to understand the potential output volume.
+
+## `download_pdb.py`
+
+**Purpose:** This script downloads PDB structure files from the RCSB PDB website (rcsb.org) using their unique 4-character PDB IDs.
+
+**Usage:**
+The script requires PDB IDs to be provided via one of two methods: a direct comma-separated list or a text file. An output directory can also be specified.
+
+**Command-line Arguments:**
+
+*   `--pdb_ids "ID1,ID2,..."`: (Required, unless --id_file is used) A comma-separated string of PDB IDs to download (e.g., `"1EHZ,2ABC,1XYZ"`).
+*   `--id_file /path/to/your/ids.txt`: (Required, unless --pdb_ids is used) Path to a text file where each line contains one PDB ID.
+*   `--output_dir /path/to/your/download_folder`: (Optional) Specifies the directory where PDB files will be saved. If not provided, files will be saved to a directory named `pdb_downloads` in the current working directory.
+
+**Note:** You must provide PDB IDs using either the `--pdb_ids` argument or the `--id_file` argument. If both are provided, the script will produce an error.
+
+**Examples:**
+
+1.  Download specific PDB IDs to the default directory (`./pdb_downloads`):
+    ```bash
+    python download_pdb.py --pdb_ids "1EHZ,2ABC"
+    ```
+
+2.  Download PDB IDs from a file to a custom directory:
+    ```bash
+    python download_pdb.py --id_file "my_pdb_ids.txt" --output_dir "protein_structures"
+    ```
+    *(Content of `my_pdb_ids.txt`):*
+    ```text
+    1EHZ
+    1XYZ
+    2ABC
+    ```
+
+3.  Download specific PDB IDs to a custom directory:
+    ```bash
+    python download_pdb.py --pdb_ids "4HHB,1A00" --output_dir "/data/pdb_files"
+    ```
+
+**Dependencies:**
+*   **requests:** This script uses the `requests` library to fetch files from the internet. Install it using pip:
+    ```bash
+    pip install requests
+    ```
+
+**Error Handling:**
+The script includes error handling for common issues such as:
+*   Invalid or non-existent PDB IDs (resulting in 404 errors from RCSB).
+*   Network connectivity problems (e.g., connection timeouts).
+*   File system errors (e.g., issues creating the output directory or writing files).
+It will print informative messages for such errors (to standard error) and continue to process other PDB IDs if possible. A summary of successful and failed downloads is provided at the end. The script will exit with a non-zero status code if any downloads fail or if critical errors occur.
+
+[end of README.md]
